@@ -18,7 +18,6 @@ import pt.sata.curso.entities.enums.OrderStatus;
 @Entity
 @Table(name = "tb_order")
 public class Order implements Serializable {
-	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -79,21 +78,15 @@ public class Order implements Serializable {
 	}
 
 	@Override
-	public int hashCode() {
-		return Objects.hash(id);
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Order order = (Order) o;
+		return id.equals(order.id);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Order other = (Order) obj;
-		return Objects.equals(id, other.id);
+	public int hashCode() {
+		return Objects.hash(id);
 	}
-	
-	
 }
