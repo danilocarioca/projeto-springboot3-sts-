@@ -33,6 +33,7 @@ public class OrderItem implements Serializable {
     public Order getOrder() {
         return id.getOrder();
     }
+
     public void setOrder(Order order){
         id.setOrder(order);
     }
@@ -60,6 +61,9 @@ public class OrderItem implements Serializable {
         this.price = price;
     }
 
+    public Double getSubTotal(){
+        return price * quantity;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
