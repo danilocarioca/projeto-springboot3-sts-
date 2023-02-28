@@ -1,4 +1,4 @@
-package pt.sata.curso.resources.exceptions;
+package pt.sata.curso.services.exceptions;
 
 public class ResourceNotFoundException extends RuntimeException{
 
